@@ -1,2 +1,2 @@
 # python-password-generator
-🔐 Python Script for Generating Passwords based on Length 🚀
+a simple python program to generate passwords based on the length given
