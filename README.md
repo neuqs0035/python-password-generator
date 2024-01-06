@@ -16,7 +16,7 @@ Before running the script, ensure you have the following installed:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/bhavya416/python-password-generator.git
+   git clone https://github.com/neuqs0035/python-password-generator.git
    cd python-password-generator
    ```
 2. **Run Script:**
