@@ -1,18 +1,34 @@
 from random import choice
 from random import shuffle
 
-lowerchars = "abcdefghijklmnopqrstuvwxyz"
-upperchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 nums = "0123456789"
 specialchars = "~!@#$%^&*"
 
-combine_chars = list(lowerchars + upperchars + nums + specialchars)
-shuffle(combine_chars)
+print("\t\t\tRandom Password Generator\n")
 
-password_length = int(input("Enter Password Length : "))
+total_pass_size = 0
 
-password = ""
-for i in range(password_length):
-    password += choice(combine_chars)
+char_confirm = input("Do You Wanna Add Characters ? ( y / n ) : ")
 
-print("Generated Password : " + password)
+if char_confirm.lower() == "y":
+
+    char_size = int(input("\nEnter The Count Of Characters : "))
+
+    if char_size > 0:
+        
+        total_pass_size += char_size
+    
+    elif char_size == 0:
+
+        print("\nChar Size Cannot Be Zero")
+
+    else:
+
+        print("\nChar Size Cannot Be Zero")
+
+    
+elif char_confirm.lower() == "n":
+
+    print("\nChar Addition Cancled")
+
