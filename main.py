@@ -1,57 +1,61 @@
-from random import choice
-from random import shuffle
+from random import choice, shuffle
 
-chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-nums = "0123456789"
-specialchars = "~!@#$%^&*"
+letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+numbers = "0123456789"
+special_chars = "~!@#$%^&*"
 
-print("\t\t\tRandom Password Generator\n")
+print("\n\t\t\tRandom Password Generator\n")
 
-total_pass_size = 0
+letter_size = num_size = special_char_size = 0
+password_length = 0
 
-char_confirm = input("Do You Wanna Add Characters ? ( y / n ) : ")
+letter_confirm = input("Do you want to add letters? (y/n): ")
 
-if char_confirm.lower() == "y":
-
-    char_size = int(input("\nEnter The Count Of Characters : "))
-
-    if char_size > 0:
-        
-        total_pass_size += char_size
-    
-    elif char_size == 0:
-
-        print("\nChar Size Cannot Be Zero")
-
+if letter_confirm.lower() == "y":
+    letter_size = int(input("Enter the count of letters: "))
+    if letter_size > 0:
+        password_length += letter_size
     else:
+        print("\nLetter size cannot be zero.")
 
-        print("\nChar Size Cannot Be Zero")
+num_confirm = input("\nDo you want to add numbers? (y/n): ")
 
-
-elif char_confirm.lower() == "n":
-
-    print("\nChar Addition Cancled")
-
-
-num_confirm = input("Do You Wanna Add Numbers ? ( y / n ) : ")
-
-if char_confirm.lower() == "y":
-
-    num_size = int(input("\nEnter The Count Of Characters : "))
-
+if num_confirm.lower() == "y":
+    num_size = int(input("Enter the count of numbers: "))
     if num_size > 0:
-        
-        total_pass_size += num_size
-    
-    elif num_size == 0:
-
-        print("\nChar Size Cannot Be Zero")
-
+        password_length += num_size
     else:
+        print("\nNumber size cannot be zero.")
 
-        print("\nChar Size Cannot Be Zero")
+special_char_confirm = input("\nDo you want to add special characters? (y/n): ")
 
+if special_char_confirm.lower() == "y":
+    special_char_size = int(input("Enter the count of special characters: "))
+    if special_char_size > 0:
+        password_length += special_char_size
+    else:
+        print("\nSpecial character size cannot be zero.")
+
+if password_length == 0:
+    print("\nYou entered 'no' to every question. The password cannot be empty.")
+else:
+    password = ""
+
+    for _ in range(letter_size):
+        password += choice(letters)
+
+    for _ in range(num_size):
+        password += choice(numbers)
+
+    for _ in range(special_char_size):
+        password += choice(special_chars)
+
+    password_list = list(password)
+    shuffle(password_list)
+
+    password = ""
     
-elif num_confirm.lower() == "n":
+    for i in password_list:
+        password += i
 
-    print("\nChar Addition Cancled")
+    print("\nGenerated Password: " + password)
