@@ -27,8 +27,31 @@ if char_confirm.lower() == "y":
 
         print("\nChar Size Cannot Be Zero")
 
-    
+
 elif char_confirm.lower() == "n":
 
     print("\nChar Addition Cancled")
 
+
+num_confirm = input("Do You Wanna Add Numbers ? ( y / n ) : ")
+
+if char_confirm.lower() == "y":
+
+    num_size = int(input("\nEnter The Count Of Characters : "))
+
+    if num_size > 0:
+        
+        total_pass_size += num_size
+    
+    elif num_size == 0:
+
+        print("\nChar Size Cannot Be Zero")
+
+    else:
+
+        print("\nChar Size Cannot Be Zero")
+
+    
+elif num_confirm.lower() == "n":
+
+    print("\nChar Addition Cancled")
